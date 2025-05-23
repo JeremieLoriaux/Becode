@@ -1,25 +1,9 @@
-def fibonacci(n: int):
-    if n == 0:
-        return 0
+import re
+password = input("Enter your password :")
+pattern = r"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[$#@]).{6,}$"
 
-    if n == 1:
-        return 1
+while not re.match(pattern, password):
+    print("Not a valid password please try again...")
+    password = input("Enter your password :")
 
-    else:
-        return fibonacci(n-1) + fibonacci(n-2)
-
-
-def fibonacci_list(input: int):
-    list = []
-    count = 0
-    while True:
-        list.append(fibonacci(count))
-        if list[count] > input:
-            break
-        count += 1
-
-    return list
-
-
-
-print(fibonacci_list(4))
+print("Congrats you have entered a valid password")
